@@ -67,8 +67,11 @@ def main():
         else:
             try:
                 ips = search_directory(args.directory)
+            except NotADirectoryError:
+                print("You used -d... Please specify a directory, not a file")
             except OSError:
                 print("Remove trailing \\ from path")
+
 
     # Copy IPs to clipboard
     pyperclip.copy('\n'.join(ips))
