@@ -5,7 +5,7 @@ import os
 import pyperclip
 
 def extract_ips(filename):
-    with open(filename, 'r') as f:
+    with open(filename, 'r', errors='ignore') as f:
         reader = csv.reader(f)
         ips = set()  # use a set to automatically de-duplicate IPs
         ip_pattern = re.compile(
